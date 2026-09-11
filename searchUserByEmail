@@ -1,0 +1,21 @@
+const searchUserByEmail = async (req, res) => {
+  try {
+    const { email } = req.query;
+    const user = await User.findOne({ email }).select('name email _id');
+    if (!user) {
+      return res.status(404).json({ message: 'المستخدم غير موجود' });
+    }
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ message: 'فشل في البحث عن المستخدم' });
+  }
+};
+
+// أضف إلى exports
+module.exports = {
+  registerUser,
+  loginUser,
+  getUserData,
+  updateBalance,
+  searchUserByEmail,
+};
