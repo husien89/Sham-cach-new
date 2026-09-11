@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
+const authMiddleware = require('../middleware/authMiddleware');
+
+// ... الكود السابق
+
+// تحديث الرصيد
+router.put('/update-balance', authMiddleware, userController.updateBalance);
+
+module.exports = router;
