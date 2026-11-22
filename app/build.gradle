@@ -1,0 +1,1 @@
+buildConfigField "String", "APP_URL", "\"https://sham.cash\""
